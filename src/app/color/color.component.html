@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="container">
+    <div [ngStyle]="{ 'background-color': color}" *ngFor="let color of colorsDisplay" class="box noselect"
+      (click)="openDialog(color)">
+      <ng-template #dialogTemplate>
+        <div class="dialog-container" [ngStyle]="{'backgroundColor': dialogColor, 'color': dialogFontColor}">
+          <div class="dialog">
+            {{currentColor}}
+            <button mat-button class="btn-copy" [ngStyle]="{'backgroundColor': lightColorCode, color: darkColorCode}"
+              [cdkCopyToClipboard]="currentColor" (click)="openSnackBar(currentColor)">Copy</button>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <!-- <div class="message"></div> -->
+  <div class="func-container" *ngIf="isShowFunc">
+    <div class="btn-func sort noselect" (click)="sort()">sort</div>
+    <div class="btn-func restart noselect" (click)="restart()">restart</div>
+    <div class="btn-func dark-mode noselect" *ngIf="!isDarkMode" (click)="darkMode(true)">dark 😎</div>
+    <div class="btn-func light-mode noselect" *ngIf="isDarkMode" (click)="darkMode(false)">light 😑</div>
+  </div>
+</div>
