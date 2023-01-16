@@ -1,13 +1,29 @@
-import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { interval, Observable, take } from 'rxjs';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { interval, take } from 'rxjs';
 import { ColorService } from '../core/services/color.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { trigger, style, animate, transition } from '@angular/animations';
+
 
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',
-  styleUrls: ['./color.component.css']
+  styleUrls: ['./color.component.css'],
+  animations: [
+    trigger('scale', [
+      transition('void => *', [
+        style({ scale: 0 }),
+        animate(200, style({ scale: 1 }))
+      ])
+    ]),
+    trigger('fade', [
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate(200, style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class ColorComponent implements OnInit {
   copyMessage = "copied to clipboard"

@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container">
-    <div [ngStyle]="{ 'background-color': color}" *ngFor="let color of colorsDisplay" class="box noselect"
+    <div @scale [ngStyle]="{ 'background-color': color}" *ngFor="let color of colorsDisplay" class="box noselect"
       (click)="openDialog(color)">
       <ng-template #dialogTemplate>
         <div class="dialog-container" [ngStyle]="{'backgroundColor': dialogColor, 'color': dialogFontColor}">
@@ -15,10 +15,11 @@
   </div>
   <!-- <div class="message"></div> -->
   <div class="func-container" *ngIf="isShowFunc">
-    <button mat-button class="btn-func sort noselect" (click)="sort()">sort</button>
-    <button mat-button class="btn-func restart noselect" (click)="restart()">restart</button>
-    <button mat-button class="btn-func dark-mode noselect" *ngIf="!isDarkMode" (click)="darkMode(true)">dark 😎</button>
-    <button mat-button class="btn-func light-mode noselect" *ngIf="isDarkMode" (click)="darkMode(false)">light
+    <button @fade mat-button class="btn-func sort noselect" (click)="sort()">sort</button>
+    <button @fade mat-button class="btn-func restart noselect" (click)="restart()">restart</button>
+    <button @fade mat-button class="btn-func dark-mode noselect" *ngIf="!isDarkMode" (click)="darkMode(true)">dark
+      😎</button>
+    <button @fade mat-button class="btn-func light-mode noselect" *ngIf="isDarkMode" (click)="darkMode(false)">light
       😑</button>
   </div>
 </div>
