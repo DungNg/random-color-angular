@@ -39,6 +39,7 @@
     /* transform: scale(0); */
 
     background-color: gray;
+    cursor: pointer;
 }
 
 .func-container {
@@ -51,13 +52,17 @@
     align-items: center;
 }
 
+.btn-copy {
+    box-shadow: var(--box-shadow);
+}
+
 .btn-func {
     color: white;
     background-color: green;
     display: block;
     cursor: pointer;
     width: 100%;
-    padding: 1rem;
+    padding: .5rem;
     border-radius: var(--border-radius);
     text-align: center;
     transform: scale(1);
@@ -99,6 +104,7 @@
 .dialog {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .dialog-container {
@@ -120,6 +126,13 @@
 ::ng-deep .message-dark-mode {
     background-color: white;
     color: black;
+}
+
+.mat-button,
+.mat-flat-button,
+.mat-icon-button,
+.mat-stroked-button {
+    border-radius: .5rem;
 }
 
 @media (min-width: 641px) {

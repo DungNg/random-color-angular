@@ -15,9 +15,10 @@
   </div>
   <!-- <div class="message"></div> -->
   <div class="func-container" *ngIf="isShowFunc">
-    <div class="btn-func sort noselect" (click)="sort()">sort</div>
-    <div class="btn-func restart noselect" (click)="restart()">restart</div>
-    <div class="btn-func dark-mode noselect" *ngIf="!isDarkMode" (click)="darkMode(true)">dark 😎</div>
-    <div class="btn-func light-mode noselect" *ngIf="isDarkMode" (click)="darkMode(false)">light 😑</div>
+    <button mat-button class="btn-func sort noselect" (click)="sort()">sort</button>
+    <button mat-button class="btn-func restart noselect" (click)="restart()">restart</button>
+    <button mat-button class="btn-func dark-mode noselect" *ngIf="!isDarkMode" (click)="darkMode(true)">dark 😎</button>
+    <button mat-button class="btn-func light-mode noselect" *ngIf="isDarkMode" (click)="darkMode(false)">light
+      😑</button>
   </div>
 </div>

@@ -135,7 +135,7 @@ table {
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito', sans-serif !important;
 }
 
 body {
@@ -157,7 +157,6 @@ body {
 
 body {
     margin: 0;
-    font-family: "Nunito", "Helvetica Neue", sans-serif;
 }
 
 mat-dialog-container {
