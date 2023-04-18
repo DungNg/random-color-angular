@@ -32,7 +32,6 @@ export class ColorComponent implements OnInit {
   darkColorCode = "#000000";
   isLightColor = false;
   dialogColor = "#000000";
-  dialogFontColor = "#000000";
   isShowFunc = false;
   isDarkMode = false;
   start = 1;
@@ -60,7 +59,6 @@ export class ColorComponent implements OnInit {
     this.currentColor = color;
     this.isLightColor = this.colorService.isLightColor(color);
     this.dialogColor = color;
-    this.dialogFontColor = this.isLightColor ? this.darkColorCode : this.lightColorCode;
     const dialogRef = this.matDialog.open(this.dialogTemplate, {
       width: '300px',
       height: '300px'

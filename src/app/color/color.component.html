@@ -3,10 +3,10 @@
     <div @scale [ngStyle]="{ 'background-color': color}" *ngFor="let color of colorsDisplay" class="box noselect"
       (click)="openDialog(color)">
       <ng-template #dialogTemplate>
-        <div class="dialog-container" [ngStyle]="{'backgroundColor': dialogColor, 'color': dialogFontColor}">
+        <div class="dialog-container" [ngStyle]="{'backgroundColor': dialogColor}">
           <div class="dialog">
             {{currentColor}}
-            <button mat-button class="btn-copy" [ngStyle]="{'backgroundColor': lightColorCode, color: darkColorCode}"
+            <button mat-raised-button class="btn-copy" [ngStyle]="{'backgroundColor': lightColorCode, 'color': darkColorCode}"
               [cdkCopyToClipboard]="currentColor" (click)="openSnackBar(currentColor)">Copy</button>
           </div>
         </div>
