@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { trigger, style, animate, transition } from '@angular/animations';
 
-
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',
@@ -14,24 +13,24 @@ import { trigger, style, animate, transition } from '@angular/animations';
     trigger('scale', [
       transition('void => *', [
         style({ scale: 0 }),
-        animate(200, style({ scale: 1 }))
-      ])
+        animate(200, style({ scale: 1 })),
+      ]),
     ]),
     trigger('fade', [
       transition('void => *', [
         style({ opacity: 0 }),
-        animate(200, style({ opacity: 1 }))
-      ])
-    ])
-  ]
+        animate(200, style({ opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
 export class ColorComponent implements OnInit {
-  copyMessage = "copied to clipboard"
-  currentColor = "#FFFFFF";
-  lightColorCode = "#FFFFFF";
-  darkColorCode = "#000000";
+  copyMessage = 'copied to clipboard';
+  currentColor = '#FFFFFF';
+  lightColorCode = '#FFFFFF';
+  darkColorCode = '#000000';
   isLightColor = false;
-  dialogColor = "#000000";
+  dialogColor = '#000000';
   isShowFunc = false;
   isDarkMode = false;
   start = 1;
@@ -41,14 +40,17 @@ export class ColorComponent implements OnInit {
   colors: string[] = [];
   delayLoop = interval(0);
 
-  @ViewChild("dialogTemplate", { read: TemplateRef }) dialogTemplate!: TemplateRef<any>;
+  @ViewChild('dialogTemplate', { read: TemplateRef })
+  dialogTemplate!: TemplateRef<any>;
 
-  constructor(private colorService: ColorService,
+  constructor(
+    private colorService: ColorService,
     private matDialog: MatDialog,
-    private _snackBar: MatSnackBar) { }
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
-    const isDarkMode = !!Number(localStorage.getItem("darkMode"));
+    const isDarkMode = !!Number(localStorage.getItem('darkMode'));
     if (isDarkMode) {
       this.darkMode(isDarkMode);
     }
@@ -60,25 +62,24 @@ export class ColorComponent implements OnInit {
     this.isLightColor = this.colorService.isLightColor(color);
     this.dialogColor = color;
     const dialogRef = this.matDialog.open(this.dialogTemplate, {
-      width: '300px',
-      height: '300px'
-    })
+      width: '350px',
+      height: '350px',
+    });
   }
 
   openSnackBar(message: string) {
-    this._snackBar.open(`${message} ${this.copyMessage}`, "",
-      {
-        duration: 3000,
-        horizontalPosition: 'end',
-        panelClass: this.isDarkMode ? ['message-dark-mode'] : ['message']
-      })
+    this._snackBar.open(`${message} ${this.copyMessage}`, '', {
+      duration: 3000,
+      horizontalPosition: 'end',
+      panelClass: this.isDarkMode ? ['message-dark-mode'] : ['message'],
+    });
   }
 
   mainFunc() {
     this.isShowFunc = false;
     this.colorsDisplay = [];
     const takeOneByOne = this.delayLoop.pipe(take(this.colors.length));
-    takeOneByOne.subscribe(index => {
+    takeOneByOne.subscribe((index) => {
       this.colorsDisplay.push(this.colors[index]);
 
       if (index === this.colors.length - 1) {
@@ -87,7 +88,7 @@ export class ColorComponent implements OnInit {
       setTimeout(() => {
         window.scrollTo(0, document.body.scrollHeight);
       }, 100);
-    })
+    });
   }
 
   sort() {
@@ -103,7 +104,30 @@ export class ColorComponent implements OnInit {
 
   darkMode(isDarkMode: boolean) {
     this.isDarkMode = isDarkMode;
-    document.body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", +this.isDarkMode + "");
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', +this.isDarkMode + '');
+  }
+
+  downloadImage(res: number, color: string) {
+    const resolutions = [
+      { name: '1080', width: 1920, height: 1080 },
+      { name: '2K', width: 2048, height: 1080 },
+      { name: '4K', width: 4096, height: 2160 },
+    ];
+    let canvas = document.createElement('canvas');
+    canvas.width = resolutions[res].width;
+    canvas.height = resolutions[res].height;
+    let ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, resolutions[res].width, resolutions[res].height);
+    let dataURL = canvas.toDataURL();
+
+    var link = document.createElement('a');
+    link.href = dataURL;
+    link.download = `${color}.png`; // Set default file name
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 }
