@@ -129,6 +129,18 @@
     gap: .5rem;
 }
 
+.dialog-button-container{
+    display:flex;
+    flex-direction: row;
+    gap: .5rem;
+    width: 100%;
+    padding-top: .5rem;
+}
+
+.btn-download{
+    width: 100%;
+}
+
 ::ng-deep .message {
     background-color: black;
     color: white;

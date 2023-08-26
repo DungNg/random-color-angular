@@ -6,17 +6,19 @@
         <div class="dialog-container" [ngStyle]="{'backgroundColor': dialogColor}">
           <div class="dialog">
             {{currentColor}}
-            <button mat-flat-button class="btn-copy"
-              [cdkCopyToClipboard]="currentColor" (click)="openSnackBar(currentColor)">Copy</button>
+            <button mat-flat-button class="btn-copy" [cdkCopyToClipboard]="currentColor"
+              (click)="openSnackBar(currentColor)">Copy</button>
           </div>
           <div class="dialog">
             Download:
-            <button mat-flat-button class="btn-copy" (click)="downloadImage(0, currentColor)"
-              target="_blank">1080</button>
-            <button mat-flat-button class="btn-copy" (click)="downloadImage(1, currentColor)"
-              target="_blank">2K</button>
-            <button mat-flat-button class="btn-copy" (click)="downloadImage(2, currentColor)"
-              target="_blank">4K</button>
+            <div class="dialog-button-container">
+              <button mat-flat-button class="btn-copy btn-download" (click)="downloadImage(0, currentColor)"
+                target="_blank">1080</button>
+              <button mat-flat-button class="btn-copy btn-download" (click)="downloadImage(1, currentColor)"
+                target="_blank">2K</button>
+              <button mat-flat-button class="btn-copy btn-download" (click)="downloadImage(2, currentColor)"
+                target="_blank">4K</button>
+            </div>
           </div>
         </div>
       </ng-template>
