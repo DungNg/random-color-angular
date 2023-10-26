@@ -26,7 +26,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 })
 export class ColorComponent implements OnInit {
   copyMessage = 'copied to clipboard';
-  currentColor = '#FFFFFF';
+  currentColor = '#000000';
   lightColorCode = '#FFFFFF';
   darkColorCode = '#000000';
   isLightColor = false;
@@ -42,6 +42,8 @@ export class ColorComponent implements OnInit {
 
   @ViewChild('dialogTemplate', { read: TemplateRef })
   dialogTemplate!: TemplateRef<any>;
+  @ViewChild('dialogDownloadImageTemplate', { read: TemplateRef })
+  dialogDownloadImageTemplate!: TemplateRef<any>;
 
   constructor(
     private colorService: ColorService,
@@ -62,6 +64,13 @@ export class ColorComponent implements OnInit {
     this.isLightColor = this.colorService.isLightColor(color);
     this.dialogColor = color;
     const dialogRef = this.matDialog.open(this.dialogTemplate, {
+      width: '350px',
+      height: '350px',
+    });
+  }
+
+  openDialogDownloadImage(): void {
+    const dialogRef = this.matDialog.open(this.dialogDownloadImageTemplate, {
       width: '350px',
       height: '350px',
     });
@@ -109,6 +118,10 @@ export class ColorComponent implements OnInit {
   }
 
   downloadImage(res: number, color: string) {
+    let Reg_Exp = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i;
+    if (!Reg_Exp.test(color)) {
+      color = "#FFFFFF";
+    }
     const resolutions = [
       { name: '1080', width: 1920, height: 1080 },
       { name: '2K', width: 2048, height: 1080 },

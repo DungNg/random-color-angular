@@ -86,6 +86,10 @@
     background-color: #B74050;
 }
 
+.downloadImage{
+    background-color: #FFC436;
+}
+
 .noselect {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -112,6 +116,14 @@
     padding: 1rem;
     width: auto;
     flex-wrap: wrap;
+}
+
+.dialog-input-color{
+    background-color: white;
+    color: black;
+    border-radius: .5rem;
+    padding: 1rem;
+    width: auto;
 }
 
 .dialog-container {
