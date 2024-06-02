@@ -79,6 +79,7 @@ export class ColorComponent implements OnInit {
   openSnackBar(message: string) {
     this._snackBar.open(`${message} ${this.copyMessage}`, '', {
       duration: 3000,
+      verticalPosition: 'top',
       horizontalPosition: 'end',
       panelClass: this.isDarkMode ? ['message-dark-mode'] : ['message'],
     });

@@ -69,7 +69,6 @@
     cursor: pointer;
     width: 100%;
     padding: .5rem;
-    /* border: 2px solid var(--background-color); */
     border-radius: var(--border-radius);
     text-align: center;
     transform: scale(1);
@@ -104,11 +103,11 @@
 }
 
 ::ng-deep mat-dialog-container {
-    border-radius: .5rem !important;
+    border-radius: 1rem !important;
 }
 
 ::ng-deep snack-bar-container {
-    border-radius: .5rem !important;
+    border-radius: 1rem !important;
     padding: 1rem !important;
 }
 
@@ -118,7 +117,7 @@
     align-items: center;
     background-color: white;
     color: black;
-    border-radius: .5rem;
+    border-radius: 1rem;
     padding: 1rem;
     width: auto;
     flex-wrap: wrap;
@@ -127,7 +126,7 @@
 .dialog-input-color{
     background-color: white;
     color: black;
-    border-radius: .5rem;
+    border-radius: 1rem;
     padding: 1rem;
     width: auto;
 }
@@ -139,7 +138,7 @@
     left: 0;
     right: 0;
     padding: 1rem;
-    border-radius: .5rem;
+    border-radius: 1rem;
     border: .2rem solid white;
     display: flex;
     flex-direction: column;
