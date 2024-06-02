@@ -142,5 +142,6 @@ export class ColorComponent implements OnInit {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    document.removeChild(canvas);
   }
 }

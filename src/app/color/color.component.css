@@ -21,7 +21,7 @@
     flex-wrap: wrap;
     height: auto;
     padding-top: var(--spacing);
-    padding-bottom: 2rem;
+    padding-bottom: 7rem;
     width: 100%;
 }
 
@@ -43,11 +43,16 @@
 }
 
 .func-container {
+    border: 2pt solid var(--text-color);
+    background-color: var(--background-color);
+    padding: .5rem;
+    border-radius: 1rem;
+    position: fixed;
+    bottom: 1rem;
     display: flex;
     flex-direction: row;
     gap: 1rem;
     width: 90vw;
-    margin-bottom: var(--spacing);
     justify-content: center;
     align-items: center;
 }
@@ -64,6 +69,7 @@
     cursor: pointer;
     width: 100%;
     padding: .5rem;
+    /* border: 2px solid var(--background-color); */
     border-radius: var(--border-radius);
     text-align: center;
     transform: scale(1);
@@ -87,7 +93,7 @@
 }
 
 .downloadImage{
-    background-color: #FFC436;
+    background-color: #1A2D55;
 }
 
 .noselect {
