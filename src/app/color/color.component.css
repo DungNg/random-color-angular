@@ -1,192 +1,192 @@
 .wrapper {
-    --spacing: 3rem;
-    --box-size: 35px;
-    --shadow: 2.5px;
-    --box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
-    --transition: all .2s;
-    --border-radius: .5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: .5rem;
+  --spacing: 3rem;
+  --box-size: 35px;
+  --shadow: 2.5px;
+  --box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%),
+    0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+  --transition: all 0.2s;
+  --border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.5rem;
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
-    gap: .7rem;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    height: auto;
-    padding-top: var(--spacing);
-    padding-bottom: 7rem;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  padding-top: var(--spacing);
+  padding-bottom: 7rem;
+  width: 100%;
 }
 
 .box {
-    /* background-color: green; */
-    height: var(--box-size) !important;
-    width: var(--box-size) !important;
-    padding: .5rem !important;
-    border-radius: var(--border-radius);
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    /* transform: scale(0); */
+  /* background-color: green; */
+  height: var(--box-size) !important;
+  width: var(--box-size) !important;
+  padding: 0.5rem !important;
+  border-radius: var(--border-radius);
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  /* transform: scale(0); */
 
-    background-color: gray;
-    cursor: pointer;
+  background-color: gray;
+  cursor: pointer;
 }
 
 .func-container {
-    border: 2pt solid var(--text-color);
-    background-color: var(--background-color);
-    padding: .5rem;
-    border-radius: 1rem;
-    position: fixed;
-    bottom: 1rem;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    width: 90vw;
-    justify-content: center;
-    align-items: center;
+  border: 2pt solid var(--text-color);
+  background-color: var(--background-color);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  position: fixed;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 90vw;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-copy {
-    box-shadow: var(--box-shadow);
-    border: 1pt solid gray;
+  box-shadow: var(--box-shadow);
+  border: 1pt solid gray;
 }
 
 .btn-func {
-    color: white;
-    background-color: green;
-    display: block;
-    cursor: pointer;
-    width: 100%;
-    padding: .5rem;
-    border-radius: var(--border-radius);
-    text-align: center;
-    transform: scale(1);
-    transition: var(--transition);
-    box-shadow: var(--box-shadow);
-    font-weight: bold;
+  color: white;
+  background-color: green;
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transform: scale(1);
+  transition: var(--transition);
+  box-shadow: var(--box-shadow);
+  font-weight: bold;
 }
 
 .btn-func.dark-mode {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 .btn-func.light-mode {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 .sort {
-    background-color: #B74050;
+  background-color: #b74050;
 }
 
-.downloadImage{
-    background-color: #1A2D55;
+.downloadImage {
+  background-color: #1a2d55;
 }
 
 .noselect {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 ::ng-deep mat-dialog-container {
-    border-radius: 1rem !important;
+  border-radius: 1rem !important;
 }
 
 ::ng-deep snack-bar-container {
-    border-radius: 1rem !important;
-    padding: 1rem !important;
+  border-radius: 1rem !important;
+  padding: 1rem !important;
 }
 
 .dialog {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    color: black;
-    border-radius: 1rem;
-    padding: 1rem;
-    width: auto;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: auto;
+  flex-wrap: wrap;
 }
 
-.dialog-input-color{
-    background-color: white;
-    color: black;
-    border-radius: 1rem;
-    padding: 1rem;
-    width: auto;
+.dialog-input-color {
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: auto;
 }
 
 .dialog-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1rem;
-    border-radius: 1rem;
-    border: .2rem solid white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: .5rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 0.2rem solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
-.dialog-button-container{
-    display:flex;
-    flex-direction: row;
-    gap: .5rem;
-    width: 100%;
-    padding-top: .5rem;
+.dialog-button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  width: 100%;
+  padding-top: 0.5rem;
 }
 
-.btn-download{
-    width: 100%;
+.btn-download {
+  width: 100%;
 }
 
 ::ng-deep .message {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 ::ng-deep .message-dark-mode {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 .mat-button,
 .mat-flat-button,
 .mat-icon-button,
 .mat-stroked-button {
-    border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 @media (min-width: 641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .container {
+    width: 70vw;
+  }
 
-    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-    .container {
-        width: 70vw;
-    }
+  .func-container {
+    width: 50vw;
+  }
 
-    .func-container {
-        width: 50vw;
-    }
-
-    /* html {
+  /* html {
         scroll-behavior: smooth;
     } */
 }
