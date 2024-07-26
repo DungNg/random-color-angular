@@ -46,7 +46,7 @@
 .func-container {
   border: 2pt solid var(--text-color);
   background-color: var(--background-color);
-  padding: 0.5rem;
+  padding: .5rem;
   border-radius: 1rem;
   position: fixed;
   bottom: 1rem;

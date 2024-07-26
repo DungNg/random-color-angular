@@ -1,23 +1,23 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { interval, take } from 'rxjs';
-import { ColorService } from '../core/services/color.service';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { trigger, style, animate, transition } from '@angular/animations';
+import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
+import { interval, take } from "rxjs";
+import { ColorService } from "../core/services/color.service";
+import { MatDialog } from "@angular/material/dialog";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { trigger, style, animate, transition } from "@angular/animations";
 
 @Component({
-  selector: 'app-color',
-  templateUrl: './color.component.html',
-  styleUrls: ['./color.component.css'],
+  selector: "app-color",
+  templateUrl: "./color.component.html",
+  styleUrls: ["./color.component.css"],
   animations: [
-    trigger('scale', [
-      transition('void => *', [
+    trigger("scale", [
+      transition("void => *", [
         style({ scale: 0 }),
         animate(200, style({ scale: 1 })),
       ]),
     ]),
-    trigger('fade', [
-      transition('void => *', [
+    trigger("fade", [
+      transition("void => *", [
         style({ opacity: 0 }),
         animate(200, style({ opacity: 1 })),
       ]),
@@ -25,12 +25,12 @@ import { trigger, style, animate, transition } from '@angular/animations';
   ],
 })
 export class ColorComponent implements OnInit {
-  copyMessage = 'copied to clipboard';
-  currentColor = '#000000';
-  lightColorCode = '#FFFFFF';
-  darkColorCode = '#000000';
+  copyMessage = "copied to clipboard";
+  currentColor = "#000000";
+  lightColorCode = "#FFFFFF";
+  darkColorCode = "#000000";
   isLightColor = false;
-  dialogColor = '#000000';
+  dialogColor = "#000000";
   isShowFunc = false;
   isDarkMode = false;
   start = 1;
@@ -40,19 +40,19 @@ export class ColorComponent implements OnInit {
   colors: string[] = [];
   delayLoop = interval(0);
 
-  @ViewChild('dialogTemplate', { read: TemplateRef })
+  @ViewChild("dialogTemplate", { read: TemplateRef })
   dialogTemplate!: TemplateRef<any>;
-  @ViewChild('dialogDownloadImageTemplate', { read: TemplateRef })
+  @ViewChild("dialogDownloadImageTemplate", { read: TemplateRef })
   dialogDownloadImageTemplate!: TemplateRef<any>;
 
   constructor(
     private colorService: ColorService,
     private matDialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
   ) {}
 
   ngOnInit(): void {
-    const isDarkMode = !!Number(localStorage.getItem('darkMode'));
+    const isDarkMode = !!Number(localStorage.getItem("darkMode"));
     if (isDarkMode) {
       this.darkMode(isDarkMode);
     }
@@ -64,24 +64,24 @@ export class ColorComponent implements OnInit {
     this.isLightColor = this.colorService.isLightColor(color);
     this.dialogColor = color;
     const dialogRef = this.matDialog.open(this.dialogTemplate, {
-      width: '350px',
-      height: '350px',
+      width: "350px",
+      height: "350px",
     });
   }
 
   openDialogDownloadImage(): void {
     const dialogRef = this.matDialog.open(this.dialogDownloadImageTemplate, {
-      width: '350px',
-      height: '350px',
+      width: "350px",
+      height: "350px",
     });
   }
 
   openSnackBar(message: string) {
-    this._snackBar.open(`${message} ${this.copyMessage}`, '', {
+    this._snackBar.open(`${message} ${this.copyMessage}`, "dismiss", {
       duration: 3000,
-      verticalPosition: 'top',
-      horizontalPosition: 'end',
-      panelClass: this.isDarkMode ? ['message-dark-mode'] : ['message'],
+      verticalPosition: "top",
+      horizontalPosition: "center",
+      panelClass: this.isDarkMode ? ["message-dark-mode"] : ["message"],
     });
   }
 
@@ -114,8 +114,8 @@ export class ColorComponent implements OnInit {
 
   darkMode(isDarkMode: boolean) {
     this.isDarkMode = isDarkMode;
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', +this.isDarkMode + '');
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", +this.isDarkMode + "");
   }
 
   downloadImage(res: number, color: string) {
@@ -124,22 +124,22 @@ export class ColorComponent implements OnInit {
       color = "#FFFFFF";
     }
     const resolutions = [
-      { name: '1080', width: 1920, height: 1080 },
-      { name: '2K', width: 2048, height: 1080 },
-      { name: '4K', width: 4096, height: 2160 },
+      { name: "1080", width: 1920, height: 1080 },
+      { name: "2K", width: 2048, height: 1080 },
+      { name: "4K", width: 4096, height: 2160 },
     ];
-    let canvas = document.createElement('canvas');
+    let canvas = document.createElement("canvas");
     canvas.width = resolutions[res].width;
     canvas.height = resolutions[res].height;
-    let ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+    let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
     ctx.fillStyle = color;
     ctx.fillRect(0, 0, resolutions[res].width, resolutions[res].height);
     let dataURL = canvas.toDataURL();
 
-    var link = document.createElement('a');
+    var link = document.createElement("a");
     link.href = dataURL;
     link.download = `${color}.png`; // Set default file name
-    link.style.display = 'none';
+    link.style.display = "none";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
