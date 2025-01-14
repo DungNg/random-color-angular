@@ -53,9 +53,16 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  width: 90vw;
-  justify-content: center;
+  width: max(90vw, 70vw);
+  /* justify-content: center; */
   align-items: center;
+  overflow: auto;
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
+}
+
+.func-container::-webkit-scrollbar {
+  display: none;
 }
 
 .btn-copy {
@@ -68,8 +75,8 @@
   background-color: green;
   display: block;
   cursor: pointer;
-  width: 100%;
-  padding: 0.5rem;
+  min-width: 100px;
+  padding: .5rem 1rem;
   border-radius: var(--border-radius);
   text-align: center;
   transform: scale(1);
@@ -90,6 +97,10 @@
 
 .sort {
   background-color: #b74050;
+}
+
+.animation {
+  background-color: #775297;
 }
 
 .downloadImage {
@@ -183,7 +194,8 @@
   }
 
   .func-container {
-    width: 50vw;
+    width: min(70vw, 90vw);
+    justify-content: center;
   }
 
   /* html {
